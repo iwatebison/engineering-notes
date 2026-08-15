@@ -22,8 +22,11 @@ pnpm-debug.log*
 *.key
 
 # Local agent/editor instructions
-/AGENTS.md
 /CLAUDE.md
+
+# Private publishing material must never enter this repository
+/blog-staging/
+/private-staging/
 
 # macOS-specific files
 .DS_Store

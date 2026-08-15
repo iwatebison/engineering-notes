@@ -9,11 +9,11 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 );
 const latest = posts[0];
 ---
-<BaseLayout title="Engineering Notes" description="Systems, tools, and durable ways of working.">
+<BaseLayout title="Engineering Notes" description="Personal experiments in AI-assisted development, tools, and computing environments.">
 	<section class="hero">
 		<p class="eyebrow">Engineering notes</p>
 		<h1>小さな実験を、長く使える知見へ。</h1>
-		<p>分散システム、レジリエントなICT、AI支援の設計と運用について、実装から得た判断材料を記録します。</p>
+		<p>AI支援の開発、自作ツール、PC環境、日々のworkflowについて、作った事実だけでなく、実際に使って分かったことも記録します。</p>
 	</section>
 
 	<section aria-labelledby="latest-heading">

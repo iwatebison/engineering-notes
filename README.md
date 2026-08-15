@@ -1,6 +1,6 @@
 # Engineering Notes
 
-Technical notes on resilient systems, AI-assisted engineering, and practical experiments. The site is a static Astro project deployed to GitHub Pages as Project Pages.
+Personal experiments in AI-assisted development, tools, and computing environments. This is an individual engineering notes and build-log site, generated with Astro and deployed to GitHub Pages as Project Pages.
 
 ## Local setup
 
@@ -20,7 +20,17 @@ npm run preview
 
 ## Adding an article
 
-Create a Markdown or MDX file under `src/content/posts/`, add the required frontmatter, preview locally, and commit the change. The Articles index and article route are generated from the content collection.
+The public editorial summary is in `docs/EDITORIAL_NOTE.md`. Authoritative candidate state, source reports, interview notes, drafts, and reviews remain in a separate private publishing repository and must not be copied here.
+
+After the private article plan and Publication Review have passed, create a Markdown or MDX file under `src/content/posts/`, add the required frontmatter, and preview it locally. The Articles index and article route are generated from the content collection.
+
+Run the public-content scan, rendered preview, and production checks before requesting the single external-publication approval:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\check-public-content.ps1
+npm run check
+npm run build
+```
 
 ## Deployment
 

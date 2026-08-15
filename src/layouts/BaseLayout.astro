@@ -6,7 +6,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = 'Engineering notes on resilient systems, AI-assisted work, and practical experiments.' } = Astro.props;
+const { title, description = 'Personal experiments in AI-assisted development, tools, and computing environments.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const link = (path = '') => `${base}${path.replace(/^\/+/, '')}`;
 ---
@@ -32,7 +32,7 @@ const link = (path = '') => `${base}${path.replace(/^\/+/, '')}`;
 				<slot />
 			</main>
 			<footer class="site-footer">
-				<span>Notes on systems, tools, and durable ways of working.</span>
+				<span>Personal notes on tools, workflows, and computing environments.</span>
 				<span>© {new Date().getFullYear()} iwatebison</span>
 			</footer>
 		</div>
