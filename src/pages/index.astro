@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const link = (path = '') => `${base}${path.replace(/^\/+/, '')}`;
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latest = posts[0];
+---
+<BaseLayout title="Engineering Notes" description="Systems, tools, and durable ways of working.">
+	<section class="hero">
+		<p class="eyebrow">Engineering notes</p>
+		<h1>小さな実験を、長く使える知見へ。</h1>
+		<p>分散システム、レジリエントなICT、AI支援の設計と運用について、実装から得た判断材料を記録します。</p>
+	</section>
+
+	<section aria-labelledby="latest-heading">
+		<div class="section-heading">
+			<h2 id="latest-heading">Latest article</h2>
+			<a class="text-link" href={link('articles/')}>すべての記事 →</a>
+		</div>
+		{latest && <article class="post-card">
+			<time datetime={latest.data.pubDate.toISOString()}>{latest.data.pubDate.toLocaleDateString('ja-JP')}</time>
+			<div>
+				<h3><a href={link(`articles/${latest.id}/`)}>{latest.data.title}</a></h3>
+				<p>{latest.data.description}</p>
+			</div>
+		</article>}
+	</section>
+</BaseLayout>
